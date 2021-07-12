@@ -13,11 +13,11 @@
  */
 
 export function MatchNombre(props) {
-  const [nombre, actualizarNombre] = React.useState("");
+  const [nombre, setNombre] = React.useState("");
 
   return (
     <input
-      onChange={(e) => actualizarNombre(e.target.value.toLowerCase())}
+      onChange={(e) => setNombre(e.target.value.toLowerCase())}
       className={"input " + (nombre === "adriano" ? "input-match" : "")}
     ></input>
   );
@@ -42,14 +42,14 @@ export function MatchNombre(props) {
  */
 
 export function PasswordInput(props) {
-  const [contraseña, actualizarEstado] = React.useState(0);
+  const [contrasena, setContrasena] = React.useState(0);
 
   return (
     <input
       type="password"
-      onChange={(e) => actualizarEstado(e.target.value.length)}
+      onChange={(e) => setContrasena(e.target.value.length)}
       className={
-        "input " + (contraseña >= props.minLength ? "" : "input-match")
+        "input " + (contrasena >= props.minLength ? "" : "input-match")
       }
     ></input>
   );
@@ -82,11 +82,11 @@ export function PasswordInput(props) {
  */
 
 export function ValidationInput(props) {
-  const [value, updateValue] = React.useState("");
+  const [value, setValue] = React.useState("");
   return (
     <input
       type={props.isPassword ? 'password' : ''}
-      onChange={(e) => updateValue(e.target.value)}
+      onChange={(e) => setValue(e.target.value)}
       className={"input " + (props.validation(value) ? "" : "input-match")}
     ></input>
   );
